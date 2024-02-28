@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:api_cache_manager/models/cache_db_model.dart';
 import 'package:api_cache_manager/utils/cache_manager.dart';
 import 'package:dio/dio.dart';
-import 'package:techlify_core/src/toast.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'auth.service.dart';
@@ -23,12 +22,13 @@ class CustomUri {
         Config().readValue<String>('baseUri') + url!,
         params,
       );
-    } else
+    } else {
       return Uri.https(
         Config().readValue<String>('coreDomain'),
         Config().readValue<String>('baseUri') + url!,
         params,
       );
+    }
   }
 }
 
@@ -372,11 +372,12 @@ _showToast(bool showToast, ErrorToastCustomWidget? customToast, http.Response re
 }
 
 class AppException implements Exception {
-  final _message;
-  final _prefix;
-  AppException([this._message, this._prefix]);
+  final String? message;
+  final String? prefix;
+  AppException([this.message, this.prefix]);
+  @override
   String toString() {
-    return "$_prefix$_message";
+    return "$prefix$message";
   }
 }
 
