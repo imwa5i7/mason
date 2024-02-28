@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-import 'package:techlify_core/src/models/user.model.dart';
+import '../responses/user.response.dart';
 import 'package:intl/intl.dart';
-import '../toast.dart';
+import 'package:togo_mobile/config/console.dart';
+import '../../presentation/components/common/toast.dart';
 import 'config.dart';
 import 'data.service.dart';
 import 'package:http/http.dart' as http;
@@ -17,7 +18,7 @@ class AuthService {
     await setUser();
     int? expiresAt;
 
-    if (expiresIn != null) expiresAt = new DateTime.now().millisecondsSinceEpoch + (expiresIn * 1000);
+    if (expiresIn != null) expiresAt = DateTime.now().millisecondsSinceEpoch + (expiresIn * 1000);
 
     if (expiresAtDate != null) expiresAt = DateFormat('yyyy-MM-dd').parse(expiresAtDate).millisecondsSinceEpoch;
     return StorageService.store(Config().readValue<String>('expiryTsKey'), expiresAt);
@@ -44,12 +45,12 @@ class AuthService {
 
   static Future<bool> isLoggedIn() async {
     var expiresAt = await StorageService.read(Config().readValue<String>('expiryTsKey'));
-    print(expiresAt);
+    console(expiresAt);
     if (expiresAt == null) {
       return false;
     }
     int now = new DateTime.now().millisecondsSinceEpoch;
-    print(now);
+    console(now);
     return (int.parse(expiresAt) > now);
   }
 
@@ -95,7 +96,7 @@ class AuthService {
       );
       return true;
     } catch (e) {
-      print(e);
+      console(e);
       return false;
     }
   }

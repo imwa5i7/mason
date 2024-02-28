@@ -5,6 +5,7 @@ import 'package:api_cache_manager/utils/cache_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:togo_mobile/presentation/components/common/toast.dart';
 import 'auth.service.dart';
 import 'config.dart';
 
