@@ -1,6 +1,6 @@
 {
-  "project_name": "test_app",
-  "org_name": "very_good_ventures",
-  "application_id": "verygood.ventures.test",
-  "description": "very_good_core test configuration"
+  "project_name": "techlify_core_flavors",
+  "org_name": "techlify",
+  "application_id": "gy.techlify.project_name",
+  "description": "Techlify test configuration"
 }
