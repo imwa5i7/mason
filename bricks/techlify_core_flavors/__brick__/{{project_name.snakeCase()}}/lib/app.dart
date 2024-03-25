@@ -8,12 +8,16 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(393, 852),
+      designSize: const Size({
+        {screen_width}
+      }, {
+        {screen_height}
+      }),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-          title: '{{project_name.snakeCase()}}',
+          title: '{{project_name.titleCase()}}',
           debugShowCheckedModeBanner: false,
           theme: getApplicationTheme(),
           onGenerateRoute: RouteGenerator.getRoute,

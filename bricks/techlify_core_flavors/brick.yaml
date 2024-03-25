@@ -25,3 +25,13 @@ vars:
     description: A short project description
     default: A Very Good App
     prompt: What is the project description?
+  screen_width:
+    type: int
+    description: Width of the Screen
+    default: A Very Good App
+    prompt: What is the width of the screen?
+  screen_height:
+    type: int
+    description: Height of the Screen
+    default: A Very Good App
+    prompt: What is the height of the screen?
