@@ -1,4 +1,4 @@
-import 'package:togo_mobile/data/error_handling/api_response.dart';
+import 'package:{{project_name.snakeCase()}}/data/error_handling/api_response.dart';
 
 abstract class UserRepo {
   Future<ApiResponse> getUsers();
