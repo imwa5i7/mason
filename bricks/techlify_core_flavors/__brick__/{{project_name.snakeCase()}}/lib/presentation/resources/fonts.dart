@@ -1,8 +1,8 @@
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:flutter/material.dart';
-import '{{project_name.snakeCase()}}/presentation/resources/sizes.dart';
 
 class FontConstants {
-  static const String fontFamily = "Roboto";
+  static const String fontFamily = 'Roboto';
 }
 
 class TextWeight {
@@ -14,34 +14,45 @@ class TextWeight {
   static const FontWeight black = FontWeight.w900;
 }
 
-TextStyle _getTextStyle(double fontSize, String fontFamily, FontWeight fontWeight, Color color) {
-  return TextStyle(fontSize: fontSize, fontFamily: fontFamily, color: color, fontWeight: fontWeight);
+TextStyle _getTextStyle(
+    double fontSize, String fontFamily, FontWeight fontWeight, Color color) {
+  return TextStyle(
+      fontSize: fontSize,
+      fontFamily: fontFamily,
+      color: color,
+      fontWeight: fontWeight);
 }
 
 // regular style
 
 TextStyle getRegularStyle({double fontSize = Sizes.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily, TextWeight.regular, color);
+  return _getTextStyle(
+      fontSize, FontConstants.fontFamily, TextWeight.regular, color);
 }
 // light text style
 
 TextStyle getLightStyle({double fontSize = Sizes.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily, TextWeight.light, color);
+  return _getTextStyle(
+      fontSize, FontConstants.fontFamily, TextWeight.light, color);
 }
 // bold text style
 
 TextStyle getBoldStyle({double fontSize = Sizes.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily, TextWeight.bold, color);
+  return _getTextStyle(
+      fontSize, FontConstants.fontFamily, TextWeight.bold, color);
 }
 
 // semi bold text style
 
-TextStyle getSemiBoldStyle({double fontSize = Sizes.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily, TextWeight.semiBold, color);
+TextStyle getSemiBoldStyle(
+    {double fontSize = Sizes.s12, required Color color}) {
+  return _getTextStyle(
+      fontSize, FontConstants.fontFamily, TextWeight.semiBold, color);
 }
 
 // medium text style
 
 TextStyle getMediumStyle({double fontSize = Sizes.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontConstants.fontFamily, TextWeight.medium, color);
+  return _getTextStyle(
+      fontSize, FontConstants.fontFamily, TextWeight.medium, color);
 }

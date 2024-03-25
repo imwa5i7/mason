@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:togo_mobile/presentation/resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class NeverScrollableListView extends StatelessWidget {
   final Widget Function(BuildContext c, int i) itemBuilder;

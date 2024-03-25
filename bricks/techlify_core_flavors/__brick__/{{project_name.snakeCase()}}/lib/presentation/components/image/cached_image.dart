@@ -1,8 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
+import 'package:flutter/material.dart';
 
 class CachedImage extends StatelessWidget {
+  const CachedImage(this.imageUrl,
+      {super.key,
+      this.errorImage,
+      this.child,
+      this.height,
+      this.width,
+      this.fit = BoxFit.contain,
+      this.inStack = false,
+      this.radius = Sizes.s0});
   final String imageUrl;
   final String? errorImage;
   final Widget? child;
@@ -11,17 +20,6 @@ class CachedImage extends StatelessWidget {
   final BoxFit fit;
   final double radius;
   final bool inStack;
-
-  const CachedImage(this.imageUrl,
-      {Key? key,
-      this.errorImage,
-      this.child,
-      this.height,
-      this.width,
-      this.fit = BoxFit.contain,
-      this.inStack = false,
-      this.radius = Sizes.s0})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +41,7 @@ class CachedImage extends StatelessWidget {
                 height: height,
                 width: width,
                 child: Image.asset(
-                  ImageAssets.togoLogo,
+                  ImageAssets.logo,
                   height: 80,
                   width: 80,
                   fit: fit,
@@ -60,7 +58,7 @@ class CachedImage extends StatelessWidget {
               height: height,
               width: width,
               decoration: BoxDecoration(
-                color: Palette.black20,
+                color: Palette.black333,
                 borderRadius: BorderRadius.circular(radius),
               ),
             ),

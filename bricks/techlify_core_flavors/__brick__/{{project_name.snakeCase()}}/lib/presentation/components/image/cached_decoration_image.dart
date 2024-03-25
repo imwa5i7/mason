@@ -1,17 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:flutter/material.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/resources/assets.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/resources/palette.dart';
 
 class CachedDecorationImage extends StatelessWidget {
+  const CachedDecorationImage(this.imageUrl,
+      {super.key,
+      this.child,
+      this.width,
+      this.height,
+      this.fit = BoxFit.contain});
   final String? imageUrl;
   final Widget? child;
   final double? width;
   final double? height;
   final BoxFit fit;
-
-  const CachedDecorationImage(this.imageUrl, {Key? key, this.child, this.width, this.height, this.fit = BoxFit.contain})
-      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +24,9 @@ class CachedDecorationImage extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: imageProvider, fit: fit,
-            centerSlice: Rect.largest
+            image: imageProvider,
+            fit: fit,
+            centerSlice: Rect.largest,
             colorFilter: const ColorFilter.mode(
               Colors.red,
               BlendMode.colorBurn,
@@ -32,7 +35,7 @@ class CachedDecorationImage extends StatelessWidget {
         ),
         child: child,
       ),
-      placeholder: (context, url) => Image.asset(ImageAssets.togoLogo),
+      placeholder: (context, url) => Image.asset(ImageAssets.logo),
       errorWidget: (context, url, error) => const Icon(
         Icons.error,
         color: Palette.primary,

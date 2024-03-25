@@ -1,12 +1,13 @@
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class DynamicIcon extends StatelessWidget {
   final Color? color;
   final double height;
   final dynamic path;
-  const DynamicIcon(this.path, {super.key, this.color, this.height = Sizes.s16});
+  const DynamicIcon(this.path,
+      {super.key, this.color, this.height = Sizes.s16});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,9 @@ class DynamicIcon extends StatelessWidget {
         ? SvgPicture.asset(
             path,
             height: height,
-            colorFilter: color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
+            colorFilter: color != null
+                ? ColorFilter.mode(color!, BlendMode.srcIn)
+                : null,
           )
         : path is String && path.toString().endsWith('.png')
             ? Image.asset(

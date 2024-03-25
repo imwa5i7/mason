@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/splash/splash_screen.dart';
-
-import '../customer/faq/faq_screen.dart';
+import 'package:flutter/material.dart';
 
 class Routes {
   static const String splash = "/";

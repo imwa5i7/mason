@@ -1,6 +1,5 @@
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:flutter/material.dart';
-import 'package:togo_mobile/presentation/resources/palette.dart';
-import 'package:togo_mobile/presentation/resources/sizes.dart';
 
 class CustomContainer extends StatelessWidget {
   final double? height;
@@ -38,12 +37,16 @@ class CustomContainer extends StatelessWidget {
     return Container(
       height: height,
       width: width,
-      padding: EdgeInsets.symmetric(horizontal: paddingHorizontal, vertical: paddingVertical),
-      margin: EdgeInsets.symmetric(horizontal: marginHorizontal, vertical: marginVertical),
+      padding: EdgeInsets.symmetric(
+          horizontal: paddingHorizontal, vertical: paddingVertical),
+      margin: EdgeInsets.symmetric(
+          horizontal: marginHorizontal, vertical: marginVertical),
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(radius),
-        border: showBorder ? Border.all(color: borderColor, width: borderWidth) : null,
+        border: showBorder
+            ? Border.all(color: borderColor, width: borderWidth)
+            : null,
         boxShadow: boxShadow,
       ),
       child: child,
