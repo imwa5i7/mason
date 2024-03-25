@@ -28,8 +28,10 @@ vars:
   screen_width:
     type: number
     description: Width of the Screen
+    default: 393
     prompt: What is the width of the screen?
   screen_height:
     type: number
     description: Height of the Screen
+    default: 852
     prompt: What is the height of the screen?
