@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:togo_mobile/presentation/components/global/dyanamic_icon.dart';
-import 'package:togo_mobile/presentation/resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/global/dyanamic_icon.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class CommonButton extends StatelessWidget {
   final Widget? child;
@@ -50,7 +50,8 @@ class CommonButton extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(radius),
             ),
-            minimumSize: width != null || height != null ? Size(width!, height!) : null,
+            minimumSize:
+                width != null || height != null ? Size(width!, height!) : null,
             side: showBorder
                 ? const BorderSide(
                     color: Palette.greyD8D, // Border color
@@ -60,7 +61,8 @@ class CommonButton extends StatelessWidget {
             backgroundColor: isDisabled ? Palette.greyd9d9d9 : color,
             elevation: elevalion,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            padding: EdgeInsets.symmetric(vertical: paddingVeritical, horizontal: paddingHorizontal),
+            padding: EdgeInsets.symmetric(
+                vertical: paddingVeritical, horizontal: paddingHorizontal),
             foregroundColor: !isDisabled ? textColor : Palette.white,
             textStyle: context.textTheme.bodyMedium!.copyWith(color: textColor),
           ),
@@ -70,7 +72,8 @@ class CommonButton extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: context.textTheme.bodyMedium!.copyWith(fontSize: Sizes.s18.sp, color: textColor),
+                    style: context.textTheme.bodyMedium!
+                        .copyWith(fontSize: Sizes.s18.sp, color: textColor),
                   ),
                   const Gap(Sizes.s4),
                   DynamicIcon(

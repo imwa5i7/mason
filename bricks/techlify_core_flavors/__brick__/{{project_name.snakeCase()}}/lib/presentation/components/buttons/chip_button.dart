@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:togo_mobile/presentation/components/buttons/wrapper_button.dart';
-import '../../resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/buttons/wrapper_button.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class ChipButton extends StatelessWidget {
   final bool isSelected;
@@ -31,9 +31,7 @@ class ChipButton extends StatelessWidget {
             horizontal: horizontalPadding, vertical: verticalPadding),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: isSelected
-              ? selectedColor ?? Palette.primary40
-              : Palette.whiteEFE,
+          color: isSelected ? selectedColor ?? Palette.primary : Palette.white,
           borderRadius: BorderRadius.circular(Sizes.s30),
         ),
         child: Text(

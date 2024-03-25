@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:togo_mobile/presentation/components/global/dyanamic_icon.dart';
-import 'package:togo_mobile/presentation/resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/global/dyanamic_icon.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class OutlinedIconButton extends StatelessWidget {
   final dynamic icon;

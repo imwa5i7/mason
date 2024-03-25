@@ -1,24 +1,25 @@
-import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
+import 'package:flutter/material.dart';
 
-showModalSheet(
-  BuildContext context, {
-  required child,
+Future<dynamic> showModalSheet(
+  BuildContext context,
+  Widget child, {
   required double height,
   bool enableDrag = true,
 }) {
-  showModalBottomSheet(
+  return showModalBottomSheet(
       context: context,
       enableDrag: true,
       isScrollControlled: true,
       useRootNavigator: true,
-      barrierColor: Palette.black20,
+      barrierColor: Palette.black333,
       backgroundColor: Palette.white,
       elevation: Sizes.s4,
       builder: (ctx) {
         return SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
             child: Container(
               height: height,
               width: Sizes.s1.sw,
@@ -26,7 +27,7 @@ showModalSheet(
                   color: Palette.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Palette.black25,
+                      color: Palette.black333,
                       spreadRadius: 4.0,
                       blurRadius: 3.0,
                       offset: Offset(0, 2),

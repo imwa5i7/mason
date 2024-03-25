@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:togo_mobile/presentation/resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class WrapperButton extends StatelessWidget {
   final double radius;
@@ -25,7 +25,8 @@ class WrapperButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(radius),
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+        padding: EdgeInsets.symmetric(
+            horizontal: horizontalPadding, vertical: verticalPadding),
         child: Material(
           color: color ?? Palette.transparent,
           borderRadius: BorderRadius.circular(radius),
