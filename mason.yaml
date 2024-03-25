@@ -7,3 +7,5 @@ bricks:
       path: bricks/widget
   techlify_service:
     path: bricks/techlify_service
+  techlify_core_flavors:
+    path: bricks/techlify_core_flavors
