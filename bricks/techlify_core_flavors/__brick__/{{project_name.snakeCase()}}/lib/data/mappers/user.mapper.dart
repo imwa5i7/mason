@@ -1,6 +1,6 @@
-import 'package:togo_mobile/config/extensions.dart';
-import 'package:togo_mobile/data/responses/user.response.dart';
-import 'package:togo_mobile/domain/models/user.model.dart';
+import 'package:{{project_name.snakeCase()}}/config/extensions.dart';
+import 'package:{{project_name.snakeCase()}}/data/responses/user.response.dart';
+import 'package:{{project_name.snakeCase()}}/domain/models/user.model.dart';
 
 extension UserMapper on UserResponse {
   User toDomain() {

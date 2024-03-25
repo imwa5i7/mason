@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/global/dyanamic_icon.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/common/dyanamic_icon.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class CommonButton extends StatelessWidget {
@@ -64,7 +64,7 @@ class CommonButton extends StatelessWidget {
             padding: EdgeInsets.symmetric(
                 vertical: paddingVeritical, horizontal: paddingHorizontal),
             foregroundColor: !isDisabled ? textColor : Palette.white,
-            textStyle: context.textTheme.bodyMedium!.copyWith(color: textColor),
+            textStyle: context.bodyMedium.copyWith(color: textColor),
           ),
           child: child ??
               Row(
@@ -72,7 +72,7 @@ class CommonButton extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: context.textTheme.bodyMedium!
+                    style: context.bodyMedium
                         .copyWith(fontSize: Sizes.s18.sp, color: textColor),
                   ),
                   const Gap(Sizes.s4),

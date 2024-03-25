@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:togo_mobile/data/service/data.service.dart';
+import 'package:{{project_name.snakeCase()}}/data/service/data.service.dart';
 import 'api_response.dart';
 
 class ErrorHandling {
-  static ApiResponse returnException(Object exception, {String? localDataKey, bool loadOfflineData = false}) {
+  static ApiResponse returnException(Object exception,
+      {String? localDataKey, bool loadOfflineData = false}) {
     if (exception is SocketException) {
       return ApiResponse.noInternet('No Internet');
     } else if (exception is TimeoutException) {

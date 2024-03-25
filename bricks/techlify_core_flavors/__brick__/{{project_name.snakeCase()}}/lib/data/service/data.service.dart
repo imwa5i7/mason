@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:api_cache_manager/models/cache_db_model.dart';
 import 'package:api_cache_manager/utils/cache_manager.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/common/toast.dart';
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:togo_mobile/presentation/components/global/toast.dart';
 import 'auth.service.dart';
 import 'config.dart';
 
@@ -14,7 +14,8 @@ typedef ErrorToastCustomWidget = ToastMessage? Function(http.Response response);
 enum Env { local, hosted }
 
 class CustomUri {
-  static Env env = Config().readValue<String>('env') == 'local' ? Env.local : Env.hosted;
+  static Env env =
+      Config().readValue<String>('env') == 'local' ? Env.local : Env.hosted;
 
   static Uri parse(String? url, [Map<String, String>? params]) {
     if (env == Env.local) {
@@ -35,13 +36,15 @@ class CustomUri {
 
 class DataService {
   static bool isButtonDisabled = false;
-  static Env env = Config().readValue<String>('env') == 'local' ? Env.local : Env.hosted;
+  static Env env =
+      Config().readValue<String>('env') == 'local' ? Env.local : Env.hosted;
   static Future<Map<String, String>> getHeaders() async {
     final accessToken = await AuthService.getAccessToken();
 
     var data = {
       HttpHeaders.contentTypeHeader: 'application/json',
-      if (accessToken != null && accessToken.isNotEmpty) HttpHeaders.authorizationHeader: 'Bearer $accessToken',
+      if (accessToken != null && accessToken.isNotEmpty)
+        HttpHeaders.authorizationHeader: 'Bearer $accessToken',
     };
     return data;
   }
@@ -60,7 +63,10 @@ class DataService {
   }
 
   static Future<Map?> get(String? url,
-      {Map<String, String>? params, bool enableCache = false, ErrorToastCustomWidget? customToast, bool showToast = true}) async {
+      {Map<String, String>? params,
+      bool enableCache = false,
+      ErrorToastCustomWidget? customToast,
+      bool showToast = true}) async {
     bool isConnected = await checkIsInternetConnected();
 
     Future<Map?> getResponse() async {
@@ -121,7 +127,10 @@ class DataService {
     await APICacheManager().emptyCache();
   }
 
-  static Future<Map?> post(String? url, Map? data, {bool showToast = true, Map<String, String>? params, ErrorToastCustomWidget? customToast}) async {
+  static Future<Map?> post(String? url, Map? data,
+      {bool showToast = true,
+      Map<String, String>? params,
+      ErrorToastCustomWidget? customToast}) async {
     dynamic result;
     try {
       var fullUrl = CustomUri.parse(url, params);
@@ -131,18 +140,21 @@ class DataService {
         headers: await DataService.getHeaders(),
       );
 
-      result = _returnResponse(response, showToast: showToast, customToast: customToast);
+      result = _returnResponse(response,
+          showToast: showToast, customToast: customToast);
     } catch (_) {}
     return result;
   }
 
-  static Future<Map?> postMultipart(String url, Map<String, dynamic> data) async {
+  static Future<Map?> postMultipart(
+      String url, Map<String, dynamic> data) async {
     var request = http.MultipartRequest('POST', CustomUri.parse(url));
     request.headers.addAll(await DataService.getHeaders());
     request.fields.addAll(data['body']);
     if (data['files'].isNotEmpty) {
       for (int i = 0; i < data['files'].length; i++) {
-        request.files.add(await http.MultipartFile.fromPath(data['files'][i]['field'], data['files'][i]['file'].path));
+        request.files.add(await http.MultipartFile.fromPath(
+            data['files'][i]['field'], data['files'][i]['file'].path));
       }
     }
 
@@ -184,7 +196,10 @@ class DataService {
     return result;
   }
 
-  static Future<Map?> put(String url, Map data, {Map<String, String>? params, bool showToast = true, ErrorToastCustomWidget? customToast}) async {
+  static Future<Map?> put(String url, Map data,
+      {Map<String, String>? params,
+      bool showToast = true,
+      ErrorToastCustomWidget? customToast}) async {
     dynamic result;
     try {
       isButtonDisabled = true;
@@ -196,7 +211,8 @@ class DataService {
       );
       isButtonDisabled = false;
       try {
-        result = _returnResponse(response, showToast: showToast, customToast: customToast);
+        result = _returnResponse(response,
+            showToast: showToast, customToast: customToast);
       } on FormatException catch (_) {
         if (showToast) {
           Fluttertoast.showToast(
@@ -211,7 +227,8 @@ class DataService {
     return result;
   }
 
-  static Future<Map?> delete(String url, {bool showToast = true, ErrorToastCustomWidget? customToast}) async {
+  static Future<Map?> delete(String url,
+      {bool showToast = true, ErrorToastCustomWidget? customToast}) async {
     dynamic result;
     try {
       isButtonDisabled = true;
@@ -222,12 +239,14 @@ class DataService {
       );
       isButtonDisabled = false;
 
-      result = _returnResponse(response, showToast: showToast, customToast: customToast);
+      result = _returnResponse(response,
+          showToast: showToast, customToast: customToast);
     } catch (_) {}
     return result;
   }
 
-  static Future<Map?> patch(String url, Map data, {ErrorToastCustomWidget? customToast}) async {
+  static Future<Map?> patch(String url, Map data,
+      {ErrorToastCustomWidget? customToast}) async {
     dynamic result;
     try {
       isButtonDisabled = true;
@@ -245,11 +264,16 @@ class DataService {
   }
 }
 
-dynamic _returnResponse(http.Response response, {bool enableCache = false, bool showToast = false, String? key, ErrorToastCustomWidget? customToast}) {
+dynamic _returnResponse(http.Response response,
+    {bool enableCache = false,
+    bool showToast = false,
+    String? key,
+    ErrorToastCustomWidget? customToast}) {
   switch (response.statusCode) {
     case 200:
       if (enableCache) {
-        APICacheDBModel cacheDBModel = APICacheDBModel(key: key!, syncData: response.body);
+        APICacheDBModel cacheDBModel =
+            APICacheDBModel(key: key!, syncData: response.body);
         APICacheManager().addCacheData(cacheDBModel);
       }
       var responseJson = json.decode(response.body.toString());
@@ -259,7 +283,8 @@ dynamic _returnResponse(http.Response response, {bool enableCache = false, bool 
       return responseJson;
     case 400:
       _showToast(showToast, customToast, response);
-      throw BadRequestException('Bad Request Exception : ${(response.statusCode)}');
+      throw BadRequestException(
+          'Bad Request Exception : ${(response.statusCode)}');
     case 401:
       _showToast(showToast, customToast, response);
 
@@ -276,21 +301,27 @@ dynamic _returnResponse(http.Response response, {bool enableCache = false, bool 
     case 422:
       _showToast(showToast, customToast, response);
 
-      throw InvalidInputException('Validation error : ${(response.statusCode)}');
+      throw InvalidInputException(
+          'Validation error : ${(response.statusCode)}');
     case 500:
       _showToast(showToast, customToast, response);
       throw FetchDataException('Server Error : ${response.statusCode}');
 
     default:
       _showToast(showToast, customToast, response);
-      throw FetchDataException('Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+      throw FetchDataException(
+          'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
   }
 }
 
-_showToast(bool showToast, ErrorToastCustomWidget? customToast, http.Response response) {
+_showToast(bool showToast, ErrorToastCustomWidget? customToast,
+    http.Response response) {
   if (showToast) {
     Fluttertoast.showToast(
-      msg: response.body.isNotEmpty ? jsonDecode(response.body)['error']?.toString() ?? 'Something went wrong!' : 'Something wen wrong!',
+      msg: response.body.isNotEmpty
+          ? jsonDecode(response.body)['error']?.toString() ??
+              'Something went wrong!'
+          : 'Something wen wrong!',
       toastLength: Toast.LENGTH_SHORT,
       gravity: ToastGravity.BOTTOM,
     );

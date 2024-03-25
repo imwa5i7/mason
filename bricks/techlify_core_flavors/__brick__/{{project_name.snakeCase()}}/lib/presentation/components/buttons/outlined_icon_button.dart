@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/global/dyanamic_icon.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/common/dyanamic_icon.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 
 class OutlinedIconButton extends StatelessWidget {

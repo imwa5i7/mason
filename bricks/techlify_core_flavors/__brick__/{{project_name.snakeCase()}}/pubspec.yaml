@@ -19,7 +19,12 @@ dependencies:
   flutter_screenutil: ^5.9.0
   flutter_riverpod: ^2.5.1
   flutter_svg: ^2.0.10+1
-
+  fluttertoast: ^8.2.4
+  http: ^1.2.1
+  global_configs: ^1.1.2
+  flutter_secure_storage: ^9.0.0
+  dio: ^5.4.1
+  api_cache_manager: ^1.0.2
 
 dev_dependencies:
   flutter_test:

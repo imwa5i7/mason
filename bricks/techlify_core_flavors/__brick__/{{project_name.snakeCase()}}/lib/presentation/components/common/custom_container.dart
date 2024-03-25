@@ -29,7 +29,7 @@ class CustomContainer extends StatelessWidget {
       this.marginHorizontal = Sizes.s0,
       this.radius = Sizes.s0,
       required this.child,
-      this.color = Palette.whiteEFE,
+      this.color = Palette.white,
       this.boxShadow});
 
   @override
