@@ -19,8 +19,8 @@ class OutlinedIconButton extends StatelessWidget {
       ),
       style: IconButton.styleFrom(
           fixedSize: Size(Sizes.s50.h, Sizes.s50.h),
-          backgroundColor: Palette.primaryFFE,
-          foregroundColor: Palette.primaryFFE,
+          backgroundColor: Palette.white,
+          foregroundColor: Palette.primary,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(Sizes.s8),
               side:
