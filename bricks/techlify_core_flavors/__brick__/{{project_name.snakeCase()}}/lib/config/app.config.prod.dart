@@ -1,6 +1,6 @@
 final Map<String, dynamic> prodAppConfig = {
   /**Base config for authentication */
-  "coreDomain": "api.swift.gy",
+  "coreDomain": "",
   "baseUri": "/public/",
   "apiClientId": 2,
   "apiClientSecret": "",

@@ -1,6 +1,6 @@
 final Map<String, dynamic> stagingAppConfig = {
   /**Base config for authentication */
-  "coreDomain": "api.staging.swift.gy",
+  "coreDomain": "",
   "baseUri": "/public/",
   "apiClientId": 2,
   "apiClientSecret": "",
