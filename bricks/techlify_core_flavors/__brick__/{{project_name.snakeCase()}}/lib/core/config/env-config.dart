@@ -1,6 +1,6 @@
-import 'package:{{project_name.snakeCase()}}/config/app.config.local.dart';
-import 'package:{{project_name.snakeCase()}}/config/app.config.prod.dart';
-import 'package:{{project_name.snakeCase()}}/config/app.config.staging.dart';
+import 'app.config.local.dart';
+import 'app.config.prod.dart';
+import 'app.config.staging.dart';
 
 class EnvironmentConfig {
   final String command = const String.fromEnvironment('env');
