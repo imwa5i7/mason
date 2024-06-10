@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
 
 enum ReturnWidgetType { loading, loadingFirst, loadingMore, empty, error }
 

@@ -1,4 +1,4 @@
-import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
+import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -6,8 +6,7 @@ class SharedIcon extends StatelessWidget {
   final Color? color;
   final double height;
   final dynamic path;
-  const DynamicIcon(this.path,
-      {super.key, this.color, this.height = Sizes.s16});
+  const SharedIcon(this.path, {super.key, this.color, this.height = Sizes.s16});
 
   @override
   Widget build(BuildContext context) {
