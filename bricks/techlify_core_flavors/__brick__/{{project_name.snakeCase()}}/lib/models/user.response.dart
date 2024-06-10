@@ -1,22 +1,22 @@
-class UserResponse {
+class User {
   int? id;
   String? name;
   String? email;
 
-  UserResponse({
+  User({
     this.id,
     this.name,
     this.email,
   });
 
-  factory UserResponse.fromJson(Map parsedJson) {
+  factory User.fromJson(Map parsedJson) {
     return parsedJson.isNotEmpty
-        ? UserResponse(
+        ? User(
             id: parsedJson['id'],
             name: parsedJson['name'],
             email: parsedJson['email'],
           )
-        : UserResponse();
+        : User();
   }
 
   Map<String, dynamic> toJson() {

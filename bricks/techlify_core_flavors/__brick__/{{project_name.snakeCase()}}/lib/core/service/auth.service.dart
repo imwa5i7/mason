@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 import 'storage.service.dart';
 
 class AuthService {
-  static UserResponse? user;
+  static User? user;
   static Future authenticate(String? accessToken,
       {int? expiresIn, String? expiresAtDate}) async {
     await StorageService.store(
