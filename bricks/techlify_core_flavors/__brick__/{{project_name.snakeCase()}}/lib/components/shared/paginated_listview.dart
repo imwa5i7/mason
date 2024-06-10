@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/common/return_widget.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/common/shared_return_widget.dart';
 
 typedef BuilderWidget<T> = Widget Function(
     BuildContext context, T item, int index);

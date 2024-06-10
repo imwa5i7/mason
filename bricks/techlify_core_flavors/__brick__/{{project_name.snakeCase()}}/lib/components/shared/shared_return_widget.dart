@@ -4,13 +4,13 @@ import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.da
 
 enum ReturnWidgetType { loading, loadingFirst, loadingMore, empty, error }
 
-class ReturnWidget extends StatelessWidget {
+class SharedReturnWidget extends StatelessWidget {
   final Color? color;
   final Color? textColor;
   final double? size;
   final String? message;
   final ReturnWidgetType type;
-  const ReturnWidget(
+  const SharedReturnWidget(
       {super.key,
       this.color = Palette.primaryLight,
       this.type = ReturnWidgetType.loading,

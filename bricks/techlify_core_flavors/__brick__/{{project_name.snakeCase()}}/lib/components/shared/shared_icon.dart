@@ -2,7 +2,7 @@ import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.da
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DynamicIcon extends StatelessWidget {
+class SharedIcon extends StatelessWidget {
   final Color? color;
   final double height;
   final dynamic path;

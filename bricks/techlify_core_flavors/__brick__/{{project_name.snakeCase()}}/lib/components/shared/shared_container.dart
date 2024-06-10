@@ -1,7 +1,7 @@
 import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:flutter/material.dart';
 
-class CustomContainer extends StatelessWidget {
+class SharedContainer extends StatelessWidget {
   final double? height;
   final double? width;
   final Color color;
@@ -16,7 +16,7 @@ class CustomContainer extends StatelessWidget {
   final double radius;
   final List<BoxShadow>? boxShadow;
 
-  const CustomContainer(
+  const SharedContainer(
       {super.key,
       this.height,
       this.width,

@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:api_cache_manager/models/cache_db_model.dart';
 import 'package:api_cache_manager/utils/cache_manager.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/common/toast.dart';
+import 'package:{{project_name.snakeCase()}}/core/components/common/toast.dart';
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
