@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/common/dyanamic_icon.dart';
+import 'package:{{project_name.snakeCase()}}/presentation/components/common/shared_icon.dart';
 import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
 
-class OutlinedIconButton extends StatelessWidget {
+class SharedIconButton extends StatelessWidget {
   final dynamic icon;
   final Function() onPress;
-  const OutlinedIconButton(
+  const SharedIconButton(
       {super.key, required this.icon, required this.onPress});
 
   @override
   Widget build(BuildContext context) {
     return IconButton.filled(
       onPressed: onPress,
-      icon: DynamicIcon(
+      icon: SharedIcon(
         icon,
         color: Palette.primary,
         height: Sizes.s24.h,
