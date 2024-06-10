@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'auth.service.dart';
-import '../connfig/config.dart';
+import '../config/config.dart';
 
 typedef ErrorToastCustomWidget = ToastMessage? Function(http.Response response);
 

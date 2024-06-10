@@ -46,11 +46,14 @@ class StorageService {
           IOSOptions(accessibility: KeychainAccessibility.first_unlock);
       const storage = FlutterSecureStorage();
       await storage.delete(
-          key: Config().readValue<String>('accessTokenKey'), iOptions: options);
+          key: GlobalConfig().readValue<String>('accessTokenKey'),
+          iOptions: options);
       await storage.delete(
-          key: Config().readValue<String>('expiryTsKey'), iOptions: options);
+          key: GlobalConfig().readValue<String>('expiryTsKey'),
+          iOptions: options);
       await storage.delete(
-          key: Config().readValue<String>('userStoreKey'), iOptions: options);
+          key: GlobalConfig().readValue<String>('userStoreKey'),
+          iOptions: options);
     } catch (e) {
       console(e.toString());
     }

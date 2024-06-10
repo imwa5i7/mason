@@ -8,31 +8,7 @@ import 'package:{{project_name.snakeCase()}}/core/services/data.service.dart';
 
 class UserRepo extends BaseRepo<dynamic, ApiResponse> {
   @override
-  Future<ApiResponse> show([int? id]) async {
-    try {
-      final data = await DataService.get("api/user/current");
-      if (data?['user'] == [] || data?['user']?.isEmpty) {
-        return ApiResponse.error('User is Empty');
-      }
-      User user = User.fromJson(data!['user']);
-      return ApiResponse.completed(user);
-    } catch (err) {
-      return ErrorHandling.returnException(err);
-    }
-  }
-
-  Future<ApiResponse> currentEmployee([int? id]) async {
-    try {
-      final data = await DataService.get("api/current-user/employee");
-      if (data != null && data.containsKey('item')) {
-        Employee employee = Employee.fromJson(data['item']);
-        return ApiResponse.completed(employee);
-      }
-      return ApiResponse.error(Strings.somethingWentWrong);
-    } catch (err) {
-      return ErrorHandling.returnException(err);
-    }
-  }
+  Future<ApiResponse> show([int? id]) async {}
 
   @override
   Future<ApiResponse> delete(int id) {

@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:{{project_name.snakeCase()}}/models/user.response.dart';
 import 'package:{{project_name.snakeCase()}}/components/shared/toast.dart';
 import 'package:intl/intl.dart';
-import '../connfig/config.dart';
+import '../config/config.dart';
 import 'data.service.dart';
 import 'package:http/http.dart' as http;
 import 'storage.service.dart';
@@ -39,14 +39,14 @@ class AuthService {
     }
   }
 
-  static Future<UserResponse?> getCurrentUser([reload = false]) async {
+  static Future<User?> getCurrentUser([reload = false]) async {
     if (user != null && !reload) {
       return user;
     }
     String? data = await StorageService.read(
         GlobalConfig().readValue<String>('userStoreKey'));
     if (data != null) {
-      user = UserResponse.fromJson(jsonDecode(data));
+      user = User.fromJson(jsonDecode(data));
       return user;
     }
     return null;
