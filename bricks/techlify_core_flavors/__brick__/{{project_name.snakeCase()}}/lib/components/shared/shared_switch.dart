@@ -4,7 +4,7 @@ import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
 class SharedSwitch extends StatelessWidget {
   final bool isOpen;
   final Function(bool) onChanged;
-  const CommonSwitchButton(
+  const SharedSwitch(
       {super.key, required this.isOpen, required this.onChanged});
 
   @override

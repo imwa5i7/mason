@@ -1,6 +1,5 @@
 import 'package:{{project_name.snakeCase()}}/core/config/config.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'config.dart';
 
 class StorageService {
   static Future<void> store(String key, dynamic value) async {

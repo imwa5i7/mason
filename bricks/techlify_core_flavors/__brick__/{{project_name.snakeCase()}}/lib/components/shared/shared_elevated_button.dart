@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/components/shared/shared_icon.dart';
 import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
 import 'package:{{project_name.snakeCase()}}/core/config/config.dart';
-import 'package:{{project_name.snakeCase()}}/components/shared/shared_icon.dart';
 
 class SharedElevatedButton extends StatelessWidget {
   final Widget? child;
