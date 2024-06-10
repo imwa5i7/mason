@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:{{project_name.snakeCase()}}/data/service/data.service.dart';
+import 'package:{{project_name.snakeCase()}}/core/service/data.service.dart';
 import 'api_response.dart';
 
 class ErrorHandling {

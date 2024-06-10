@@ -1,9 +1,11 @@
-import 'package:global_configs/global_configs.dart';
-
-class Config {
-  void loadFromMap(Map<String, dynamic> map) {
-    GlobalConfigs().loadFromMap(map);
-  }
-
-  dynamic readValue<T>(String key) => GlobalConfigs().get(key);
-}
+export 'validator.dart';
+export 'routes.dart';
+export 'theme.dart';
+export 'extensions.dart';
+export 'console.dart';
+export 'enums.dart';
+export 'global_config.dart';
+export 'env_config';
+export 'app.config.local.dart';
+export 'app.config.prod.dart';
+export 'app.config.staging.dart';
