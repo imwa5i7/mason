@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/components/shared/shared_icon.dart';
 import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
+import 'package:{{project_name.snakeCase()}}/core/config/config.dart';
+import 'package:{{project_name.snakeCase()}}/components/shared/shared_icon.dart';
 
 class SharedElevatedButton extends StatelessWidget {
   final Widget? child;
@@ -76,7 +78,7 @@ class SharedElevatedButton extends StatelessWidget {
                         .copyWith(fontSize: Sizes.s18.sp, color: textColor),
                   ),
                   const Gap(Sizes.s4),
-                  DynamicIcon(
+                  SharedIcon(
                     Symbols.keyboard_arrow_right,
                     height: Sizes.s24.h,
                     color: textColor,

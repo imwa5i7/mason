@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SharedExpandedSection extends StatefulWidget {
   final Widget? child;
   final bool expand;
-  const ExpandedSection({Key? key, this.expand = true, this.child})
+  const SharedExpandedSection({Key? key, this.expand = true, this.child})
       : super(key: key);
 
   @override
@@ -41,7 +41,7 @@ class _ExpandedSectionState extends State<SharedExpandedSection>
   }
 
   @override
-  void didUpdateWidget(ExpandedSection oldWidget) {
+  void didUpdateWidget(SharedExpandedSection oldWidget) {
     super.didUpdateWidget(oldWidget);
     _runExpandCheck();
   }

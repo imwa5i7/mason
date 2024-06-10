@@ -5,7 +5,7 @@ export 'extensions.dart';
 export 'console.dart';
 export 'enums.dart';
 export 'global_config.dart';
-export 'env_config';
+export 'env_config.dart';
 export 'app.config.local.dart';
 export 'app.config.prod.dart';
 export 'app.config.staging.dart';

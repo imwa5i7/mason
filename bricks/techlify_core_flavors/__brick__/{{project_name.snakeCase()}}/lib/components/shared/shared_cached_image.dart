@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:{{project_name.snakeCase()}}/presentation/resources/resources.dart';
 import 'package:flutter/material.dart';
 
-class CachedImage extends StatelessWidget {
-  const CachedImage(this.imageUrl,
+class SharedCachedImage extends StatelessWidget {
+  const SharedCachedImage(this.imageUrl,
       {super.key,
       this.errorImage,
       this.child,

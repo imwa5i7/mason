@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:{{project_name.snakeCase()}}/components/shared/shared_wrapper_button.dart';
 import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
+import 'package:{{project_name.snakeCase()}}/core/config/config.dart';
 
 class SharedChipButton extends StatelessWidget {
   final bool isSelected;

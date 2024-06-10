@@ -2,32 +2,33 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:api_cache_manager/models/cache_db_model.dart';
 import 'package:api_cache_manager/utils/cache_manager.dart';
-import 'package:{{project_name.snakeCase()}}/core/components/common/toast.dart';
+import 'package:{{project_name.snakeCase()}}/components/shared/toast.dart';
 import 'package:dio/dio.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'auth.service.dart';
-import 'config.dart';
+import '../connfig/config.dart';
 
 typedef ErrorToastCustomWidget = ToastMessage? Function(http.Response response);
 
 enum Env { local, hosted }
 
 class CustomUri {
-  static Env env =
-      Config().readValue<String>('env') == 'local' ? Env.local : Env.hosted;
+  static Env env = GlobalConfig().readValue<String>('env') == 'local'
+      ? Env.local
+      : Env.hosted;
 
   static Uri parse(String? url, [Map<String, String>? params]) {
     if (env == Env.local) {
       return Uri.http(
-        Config().readValue<String>('coreDomain'),
-        Config().readValue<String>('baseUri') + url!,
+        GlobalConfig().readValue<String>('coreDomain'),
+        GlobalConfig().readValue<String>('baseUri') + url!,
         params,
       );
     } else {
       return Uri.https(
-        Config().readValue<String>('coreDomain'),
-        Config().readValue<String>('baseUri') + url!,
+        GlobalConfig().readValue<String>('coreDomain'),
+        GlobalConfig().readValue<String>('baseUri') + url!,
         params,
       );
     }
@@ -36,8 +37,9 @@ class CustomUri {
 
 class DataService {
   static bool isButtonDisabled = false;
-  static Env env =
-      Config().readValue<String>('env') == 'local' ? Env.local : Env.hosted;
+  static Env env = GlobalConfig().readValue<String>('env') == 'local'
+      ? Env.local
+      : Env.hosted;
   static Future<Map<String, String>> getHeaders() async {
     final accessToken = await AuthService.getAccessToken();
 

@@ -1,5 +1,5 @@
 import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
-import 'package:{{project_name.snakeCase()}}/modules/splash/view/splash_screen.dart';
+import 'package:{{project_name.snakeCase()}}/modules/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 class Routes {

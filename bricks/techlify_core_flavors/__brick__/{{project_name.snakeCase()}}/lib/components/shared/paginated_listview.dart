@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/common/shared_return_widget.dart';
+import 'package:{{project_name.snakeCase()}}/components/shared/shared_return_widget.dart';
 
 typedef BuilderWidget<T> = Widget Function(
     BuildContext context, T item, int index);
@@ -70,16 +70,16 @@ class _PaginatedListViewState<T> extends State<PaginatedListView<T>> {
         ),
         itemBuilder: (context, item, index) =>
             widget.itemBuilder(context, item, index),
-        firstPageErrorIndicatorBuilder: (context) => ReturnWidget(
+        firstPageErrorIndicatorBuilder: (context) => SharedReturnWidget(
             type: ReturnWidgetType.error, message: widget.controller.error),
         newPageProgressIndicatorBuilder: (context) =>
-            const ReturnWidget(type: ReturnWidgetType.loadingMore),
+            const SharedReturnWidget(type: ReturnWidgetType.loadingMore),
         firstPageProgressIndicatorBuilder: (context) =>
-            const ReturnWidget(type: ReturnWidgetType.loadingFirst),
+            const SharedReturnWidget(type: ReturnWidgetType.loadingFirst),
         animateTransitions: true,
         noItemsFoundIndicatorBuilder: (context) =>
             widget.emptyWidget ??
-            ReturnWidget(
+            SharedReturnWidget(
               type: ReturnWidgetType.empty,
               message: widget.emptyMessage,
             ),

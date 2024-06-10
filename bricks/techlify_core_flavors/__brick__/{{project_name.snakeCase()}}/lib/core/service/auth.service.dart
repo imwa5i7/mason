@@ -1,11 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-import 'package:{{project_name.snakeCase()}}/config/console.dart';
-import 'package:{{project_name.snakeCase()}}/data/responses/user.response.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/common/toast.dart';
+import 'package:{{project_name.snakeCase()}}/models/user.response.dart';
+import 'package:{{project_name.snakeCase()}}/components/shared/toast.dart';
 import 'package:intl/intl.dart';
-import 'config.dart';
+import '../connfig/config.dart';
 import 'data.service.dart';
 import 'package:http/http.dart' as http;
 import 'storage.service.dart';
@@ -15,7 +14,7 @@ class AuthService {
   static Future authenticate(String? accessToken,
       {int? expiresIn, String? expiresAtDate}) async {
     await StorageService.store(
-        Config().readValue<String>('accessTokenKey'), accessToken);
+        GlobalConfig().readValue<String>('accessTokenKey'), accessToken);
     await setUser();
     int? expiresAt;
 
@@ -28,14 +27,15 @@ class AuthService {
           DateFormat('yyyy-MM-dd').parse(expiresAtDate).millisecondsSinceEpoch;
     }
     return StorageService.store(
-        Config().readValue<String>('expiryTsKey'), expiresAt);
+        GlobalConfig().readValue<String>('expiryTsKey'), expiresAt);
   }
 
   static Future<void> setUser() async {
     var data = await DataService.get("api/user/current");
     if (data != null) {
       await StorageService.store(
-          Config().readValue<String>('userStoreKey'), jsonEncode(data['user']));
+          GlobalConfig().readValue<String>('userStoreKey'),
+          jsonEncode(data['user']));
     }
   }
 
@@ -43,8 +43,8 @@ class AuthService {
     if (user != null && !reload) {
       return user;
     }
-    String? data =
-        await StorageService.read(Config().readValue<String>('userStoreKey'));
+    String? data = await StorageService.read(
+        GlobalConfig().readValue<String>('userStoreKey'));
     if (data != null) {
       user = UserResponse.fromJson(jsonDecode(data));
       return user;
@@ -53,8 +53,8 @@ class AuthService {
   }
 
   static Future<bool> isLoggedIn() async {
-    var expiresAt =
-        await StorageService.read(Config().readValue<String>('expiryTsKey'));
+    var expiresAt = await StorageService.read(
+        GlobalConfig().readValue<String>('expiryTsKey'));
     console(expiresAt);
     if (expiresAt == null) {
       return false;
@@ -65,8 +65,8 @@ class AuthService {
   }
 
   static Future<String?> getAccessToken() async {
-    var token =
-        await StorageService.read(Config().readValue<String>('accessTokenKey'));
+    var token = await StorageService.read(
+        GlobalConfig().readValue<String>('accessTokenKey'));
     return token;
   }
 
@@ -79,9 +79,9 @@ class AuthService {
     try {
       loading();
       var data = {
-        "client_id": Config().readValue<int>('apiClientId'),
-        "client_secret": Config().readValue<String>('apiClientSecret'),
-        "grant_type": Config().readValue<String>('apiGrantType'),
+        "client_id": GlobalConfig().readValue<int>('apiClientId'),
+        "client_secret": GlobalConfig().readValue<String>('apiClientSecret'),
+        "grant_type": GlobalConfig().readValue<String>('apiGrantType'),
         "username": email,
         "password": password,
       };

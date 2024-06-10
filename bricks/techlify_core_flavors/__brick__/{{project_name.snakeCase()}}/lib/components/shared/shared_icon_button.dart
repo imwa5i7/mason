@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:{{project_name.snakeCase()}}/presentation/components/common/shared_icon.dart';
+import 'package:{{project_name.snakeCase()}}/components/shared/shared_icon.dart';
 import 'package:{{project_name.snakeCase()}}/core/constants/constants.dart';
 
 class SharedIconButton extends StatelessWidget {
